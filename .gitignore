@@ -1,0 +1,12 @@
+.DS_Store
+.idea/
+*.iml
+gateway/gateway-web/src/main/webapp/public/**
+logs/**
+*.log
+test
+target
+*/target/**
+rebel.xml
+rebel-remote.xml
+docker/volumes/**
