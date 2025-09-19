@@ -43,3 +43,4 @@ cd Wukong_AI_CRM_15
 cd docker
 docker compose up -d
 ```
+For more detailed installation tutorials and community discussions, please refer to https://bbs.72crm.com#/forum/detail/1968891986129776640
