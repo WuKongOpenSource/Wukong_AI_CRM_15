@@ -48,9 +48,10 @@ services:
           "-h",
           "localhost"
         ]
-      interval: 1s
-      timeout: 3s
+      interval: 10s
+      timeout: 30s
       retries: 60
+      start_period: 10s
     networks:
       - kaka
   redis:
