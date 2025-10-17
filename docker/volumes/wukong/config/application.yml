@@ -1,2 +1,14 @@
 server:
   port: 8445
+wukong:
+  common:
+    upload:
+      type: aws_s3
+      endpoint: http://minio:9000
+      accessKeyId: minioadmin
+      accessKeySecret: minioadmin
+      bucketName: wukong
+      domain: http://127.0.0.1/
+      extra:
+        publicBucket: wukong-public
+      region: us-east-1
