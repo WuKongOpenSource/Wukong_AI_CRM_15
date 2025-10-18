@@ -1,26 +1,4 @@
 services:
-  nacos:
-    image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/nacos/nacos-server:v2.4.3
-    container_name: nacos-standalone-mysql
-    env_file:
-      - ./nacos/nacos-standalone-mysql.env
-    volumes:
-      - ./volumes/nacos/logs:/home/nacos/logs
-    ports:
-      - "8848:8848"
-      - "9848:9848"
-    depends_on:
-      mysql:
-        condition: service_healthy
-    restart: always
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8848/nacos/"]
-      interval: 30s
-      timeout: 20s
-      retries: 3
-      start_period: 60s
-    networks:
-      - kaka
   mysql:
     #华为云的docker镜像加速
     image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/mysql/mysql-server:8.0.32
@@ -28,6 +6,7 @@ services:
     volumes:
       - ./mysql/my.cnf:/etc/my.cnf
       - ../DB:/docker-entrypoint-initdb.d/
+      - ./mysql/DB:/docker-entrypoint-initdb.d/
       - ./volumes/mysql/data:/var/lib/mysql
     ports:
       - "3306:3306"
@@ -50,8 +29,8 @@ services:
         ]
       interval: 10s
       timeout: 30s
-      retries: 60
-      start_period: 10s
+      retries: 5
+      start_period: 60s
     networks:
       - kaka
   redis:
@@ -68,10 +47,15 @@ services:
           "CMD-SHELL",
           "redis-cli -a ${REDIS_PASSWORD:-123456} ping | grep -q PONG",
         ]
+      interval: 10s
+      timeout: 30s
+      retries: 5
+      start_period: 10s
     networks:
       - kaka
   minio:
     container_name: minio
+    restart: always
     image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/minio/minio:RELEASE.2024-10-02T17-50-41Z
     environment:
       MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY:-minioadmin}
@@ -88,8 +72,23 @@ services:
       interval: 30s
       timeout: 20s
       retries: 3
+      start_period: 60s
     networks:
       - kaka
+  minio-init:
+    image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/quay.io/minio/mc:RELEASE.2024-11-21T17-21-54Z
+    container_name: minio-init
+    depends_on:
+      minio:
+        condition: service_healthy
+    entrypoint: >
+      /bin/sh -c "
+      sleep 10 && \
+      mc alias set kaka http://minio:9000 minioadmin minioadmin && \
+      mc anonymous set download kaka/wukong-public || true"
+    networks:
+      - kaka
+    restart: "no"
   elasticsearch:
     #image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
     image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.elastic.co/elasticsearch/elasticsearch:8.13.4
@@ -121,97 +120,25 @@ services:
       interval: 30s
       timeout: 10s
       retries: 50
-    networks:
-      - kaka
-  wk_admin:
-    image: wuknogcrm-registry.cn-beijing.cr.aliyuncs.com/wukongcrm/wk_admin:20250910
-    platform: linux/amd64
-    container_name: wk_admin
-    restart: always
-    volumes:
-      - ./volumes/wukong/wk_admin/logs:/opt/wk_admin/logs
-    depends_on:
-      nacos:
-        condition: service_healthy
-      redis:
-        condition: service_healthy
-      minio:
-        condition: service_healthy
-    environment:
-      - LANG=zh_CN.UTF-8
-      - LANGUAGE=zh_CN:zh
-      - LC_ALL=zh_CN.UTF-8
-    networks:
-      - kaka
-  wk_authorization:
-    image: wuknogcrm-registry.cn-beijing.cr.aliyuncs.com/wukongcrm/wk_authorization:20250910
-    platform: linux/amd64
-    container_name: wk_authorization
-    restart: always
-    volumes:
-      - ./volumes/wukong/wk_authorization/logs:/opt/wk_authorization/logs
-    depends_on:
-      nacos:
-        condition: service_healthy
-      redis:
-        condition: service_healthy
-    environment:
-      - LANG=zh_CN.UTF-8
-      - LANGUAGE=zh_CN:zh
-      - LC_ALL=zh_CN.UTF-8
-    networks:
-      - kaka
-  wk_bi:
-    image: wuknogcrm-registry.cn-beijing.cr.aliyuncs.com/wukongcrm/wk_bi:20250910
-    platform: linux/amd64
-    container_name: wk_bi
-    restart: always
-    volumes:
-      - ./volumes/wukong/wk_bi/logs:/opt/wk_bi/logs
-    depends_on:
-      nacos:
-        condition: service_healthy
-      redis:
-        condition: service_healthy
-    environment:
-      - LANG=zh_CN.UTF-8
-      - LANGUAGE=zh_CN:zh
-      - LC_ALL=zh_CN.UTF-8
+      start_period: 120s
     networks:
       - kaka
   wk_crm:
-    image: wuknogcrm-registry.cn-beijing.cr.aliyuncs.com/wukongcrm/wk_crm:20250910
+    image: wuknogcrm-registry.cn-beijing.cr.aliyuncs.com/wukongcrm/wk_crm:20251015
     platform: linux/amd64
     container_name: wk_crm
     restart: always
     volumes:
-      - ./volumes/wukong/wk_crm/logs:/opt/wk_crm/logs
+      - ./volumes/wukong/logs:/opt/wk_boot/logs
+      - ./volumes/wukong/config:/opt/wk_boot/config
     depends_on:
-      nacos:
+      minio:
         condition: service_healthy
       redis:
         condition: service_healthy
       elasticsearch:
         condition: service_healthy
-      wk_admin:
-        condition: service_started
-    environment:
-      - LANG=zh_CN.UTF-8
-      - LANGUAGE=zh_CN:zh
-      - LC_ALL=zh_CN.UTF-8
-    networks:
-      - kaka
-  wk_examine:
-    image: wuknogcrm-registry.cn-beijing.cr.aliyuncs.com/wukongcrm/wk_examine:20250910
-    platform: linux/amd64
-    container_name: wk_examine
-    restart: always
-    volumes:
-      - ./volumes/wukong/wk_examine/logs:/opt/wk_examine/logs
-    depends_on:
-      nacos:
-        condition: service_healthy
-      redis:
+      mysql:
         condition: service_healthy
     environment:
       - LANG=zh_CN.UTF-8
@@ -219,58 +146,18 @@ services:
       - LC_ALL=zh_CN.UTF-8
     networks:
       - kaka
-  wk_gateway:
-    image: wuknogcrm-registry.cn-beijing.cr.aliyuncs.com/wukongcrm/wk_gateway:20250910
-    platform: linux/amd64
-    container_name: wk_gateway
+  nginx:
+    container_name: nginx
+    image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/nginx:latest
     restart: always
     volumes:
-      - ./volumes/wukong/wk_gateway/logs:/opt/wk_gateway/logs
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/cert:/etc/nginx/cert
+    environment:
+      NGINX_SERVER_NAME: ${NGINX_SERVER_NAME:-_}
+      NGINX_PORT: ${NGINX_PORT:-80}
     ports:
-      - "80:8445"
-    depends_on:
-      nacos:
-        condition: service_healthy
-    environment:
-      - LANG=zh_CN.UTF-8
-      - LANGUAGE=zh_CN:zh
-      - LC_ALL=zh_CN.UTF-8
-    networks:
-      - kaka
-  wk_oa:
-    image: wuknogcrm-registry.cn-beijing.cr.aliyuncs.com/wukongcrm/wk_oa:20250910
-    platform: linux/amd64
-    container_name: wk_oa
-    restart: always
-    volumes:
-      - ./volumes/wukong/wk_oa/logs:/opt/wk_oa/logs
-    depends_on:
-      nacos:
-        condition: service_healthy
-      redis:
-        condition: service_healthy
-    environment:
-      - LANG=zh_CN.UTF-8
-      - LANGUAGE=zh_CN:zh
-      - LC_ALL=zh_CN.UTF-8
-    networks:
-      - kaka
-  wk_work:
-    image: wuknogcrm-registry.cn-beijing.cr.aliyuncs.com/wukongcrm/wk_work:20250910
-    platform: linux/amd64
-    container_name: wk_work
-    restart: always
-    volumes:
-      - ./volumes/wukong/wk_work/logs:/opt/wk_work/logs
-    depends_on:
-      nacos:
-        condition: service_healthy
-      redis:
-        condition: service_healthy
-    environment:
-      - LANG=zh_CN.UTF-8
-      - LANGUAGE=zh_CN:zh
-      - LC_ALL=zh_CN.UTF-8
+      - '80:80'
     networks:
       - kaka
 networks:
