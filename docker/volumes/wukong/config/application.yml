@@ -8,7 +8,7 @@ wukong:
       accessKeyId: minioadmin
       accessKeySecret: minioadmin
       bucketName: wukong
-      domain: http://127.0.0.1/
+      domain: ./file/
       extra:
         publicBucket: wukong-public
       region: us-east-1
