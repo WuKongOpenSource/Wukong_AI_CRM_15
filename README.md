@@ -1,4 +1,4 @@
-For English, please refer to: README_EN.md
+For English, please refer to: [README_EN.md](https://github.com/WuKongOpenSource/Wukong_AI_CRM_15/edit/main/README_EN.md)
 
 悟空AI-CRM 15 开源预览版
 #### 一、悟空CRM介绍
