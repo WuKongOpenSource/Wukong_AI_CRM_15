@@ -1,7 +1,7 @@
 services:
   mysql:
     #华为云的docker镜像加速
-    image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/mysql/mysql-server:8.0.32
+    image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/mysql/mysql-server:8.0.18-aarch64-linuxarm64
     container_name: mysql
     volumes:
       - ./mysql/my.cnf:/etc/my.cnf
@@ -27,7 +27,7 @@ services:
     networks:
       - kaka
   redis:
-    image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/redis:7.0.4
+    image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/redis:7.0.4-linuxarm64
     restart: always
     environment:
       REDISCLI_AUTH: ${REDIS_PASSWORD:-123456}
@@ -49,7 +49,7 @@ services:
   minio:
     container_name: minio
     restart: always
-    image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/minio/minio:RELEASE.2024-10-02T17-50-41Z
+    image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/minio/minio:RELEASE.2024-12-13T22-19-12Z-linuxarm64
     environment:
       MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY:-minioadmin}
       MINIO_SECRET_KEY: ${MINIO_SECRET_KEY:-minioadmin}
@@ -69,7 +69,7 @@ services:
     networks:
       - kaka
   minio-init:
-    image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/quay.io/minio/mc:RELEASE.2024-11-21T17-21-54Z
+    image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/minio/mc:RELEASE.2024-09-16T17-43-14Z-linuxarm64
     container_name: minio-init
     depends_on:
       minio:
@@ -146,7 +146,7 @@ services:
       - kaka
   nginx:
     container_name: nginx
-    image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/nginx:latest
+    image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/nginx:latest-linuxarm64
     restart: always
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
