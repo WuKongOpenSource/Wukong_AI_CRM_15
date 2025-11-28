@@ -17,13 +17,13 @@ services:
       LANG: en_US.UTF-8
     restart: always
     command: >
-      bash -c "chmod 644 /etc/my.cnf && exec /entrypoint.sh mysqld --lower_case_table_names=1"
+      bash -c "chmod 644 /etc/my.cnf && chmod +x /readiness.sh && exec /entrypoint.sh mysqld --lower_case_table_names=1"
     healthcheck:
       test: ["CMD", "/readiness.sh"]
       interval: 60s
       timeout: 30s
       retries: 10
-      start_period: 60s
+      start_period: 120s
     networks:
       - kaka
   redis:
@@ -65,7 +65,7 @@ services:
       interval: 30s
       timeout: 20s
       retries: 3
-      start_period: 60s
+      start_period: 120s
     networks:
       - kaka
   minio-init:
@@ -83,9 +83,9 @@ services:
       - kaka
     restart: "no"
   elasticsearch:
-    #image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
-    image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.elastic.co/elasticsearch/elasticsearch:8.13.4
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
     container_name: elasticsearch
+    platform: linux/arm64
     restart: always
     volumes:
       # 国内下载es插件太慢，直接使用已经下载好的
@@ -119,6 +119,7 @@ services:
   wk_crm:
     image: wuknogcrm-registry.cn-beijing.cr.aliyuncs.com/wukongcrm/wk_crm:20251122
     container_name: wk_crm
+    platform: linux/arm64
     restart: always
     volumes:
       - ./volumes/wukong/logs:/opt/wk_boot/logs
@@ -137,7 +138,7 @@ services:
       interval: 30s
       timeout: 20s
       retries: 3
-      start_period: 60s
+      start_period: 120s
     environment:
       - LANG=zh_CN.UTF-8
       - LANGUAGE=zh_CN:zh
