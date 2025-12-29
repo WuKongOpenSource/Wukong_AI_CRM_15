@@ -1,41 +1,53 @@
-For English, please refer to: [README_EN.md](https://github.com/WuKongOpenSource/Wukong_AI_CRM_15/edit/main/README_EN.md)
+🌍 Please Choose Your Language
 
-悟空AI-CRM 15 开源预览版
-#### 一、悟空CRM介绍
-悟空CRM是中国知名的开源管理软件，累计服务用户超千万，开源系统下载量突破200万次。用户覆盖设计制造、服务、金融、政府机构等多个行业，并与阿里巴巴、腾讯、OPPO、航天信息、中央广播电视总台（CCTV）等多家知名机构达成战略合作。
-公司先后荣获河南省高新技术企业、国家3A信用企业、ISO 9001质量管理体系认证、ISO 27001信息安全管理体系认证等20余项荣誉资质，拥有50余件核心软件著作权，获得20余家国内主流媒体报道。自成立以来，公司以高科技为起点、以技术为核心、以完善的售后服务为后盾，秉承“稳固与发展、求实与创新”的核心精神，已为国内外上万家企业提供专业服务。在助力企业实现价值最大化的过程中，同步实现自身价值提升，达成深度双赢合作，赢得社会各界的广泛赞誉与认可。
+[English](https://github.com/WuKongOpenSource/Wukong_AI_CRM_15/edit/main/README.md) | [中文（简体）](https://github.com/WuKongOpenSource/Wukong_AI_CRM_15/edit/main/README_CN.md)
 
-#### 二、悟空 AI-CRM 15 开源预览版介绍
-本次发布的版本为悟空 AI-CRM 15 开源预览版，支持一键部署功能。后续将正式发布悟空AI-CRM 15 开源版本，该版本与线上SaaS版本的界面显示及使用体验完全一致，下载即可即刻体验。
-官网地址：http://www.5kcrm.com
+Version introduction of Wukong AI-CRM 15
 
-#### 三、悟空AI-CRM 15功能核心价值
-1、全流程覆盖：从线索获取到款项回收的核心功能，全面满足专业客户关系管理需求；
+I.Introduction to Wukong CRM
+Wukong CRM is a well-recognized open-source management solution in China. It has cumulatively served over 10 million users, with downloads of its open-source system surpassing 2 million. Its user base spans diverse industries, including design & manufacturing, services, finance, and government agencies. Additionally, it has forged strategic partnerships with leading organizations such as Alibaba, Tencent, OPPO, Aerospace Information, and China Central Television (CCTV).
 
-2、赋能智能管理：以AI技术强力加持，打造全链路智慧化AI-CRM系统；
+Since its founding, the company has anchored its operations in high technology—with technology as its core and comprehensive after-sales service as its support. Guided by the spirit of "Stability & Development, Pragmatism & Innovation," it has provided professional services to tens of thousands of enterprises domestically and internationally. In helping these enterprises maximize their value, the company has simultaneously enhanced its own, fostering in-depth win-win collaborations and earning widespread recognition from all sectors of society.
 
-3、部署无门槛：一键完成安装，几分钟内即可快速上线使用；
+II.Introduction to Wukong AI-CRM 15
+This release of Wukong AI-CRM 15 featuring one-click deployment.Wukong AI-CRM 15 is fully aligned with the online SaaS version in terms of interface, display, and user experience—enabling instant access upon download.
 
-4、服务全球用户：提供多语言支持与国际化适配，有效打破地域沟通壁垒；
+Official Website: https://www.wukongcrm.com and https://www.wukong.org
 
-5、新手友好：配备示例数据与配套文档，助力新手快速上手CRM操作；
+III. Core Value of Wukong AI-CRM 15 Features
+1、End-to-End Coverage: Core features span from lead generation to payment collection, fully addressing the requirements of professional customer relationship management (CRM).
 
-6、共建共享：诚邀您加入悟空开源社区官方群组，携手共赴开源魅力之旅；
+2、Intelligent Management Empowerment: Powered by advanced AI technology, it delivers a fully connected intelligent AI-CRM system.
 
+3、Zero-Deployment Threshold: One-click installation enables quick launch and usage within minutes.
 
-#### 四、扫码加入社区
-请扫码加入悟空CRM官方微信交流群
+4、Global User Support: Multi-language capabilities and internationalization support effectively eliminate geographical communication barriers.
+
+5、New User-Friendly: Sample data and supporting documentation are provided to help new users quickly master CRM operations.
+
+6、Co-construction & Sharing: We sincerely invite you to join the official group of the Wukong Open-Source Community and embark on a journey to explore the charm of open-source together.；
+
+ 
+IV. Join the Community
+
+For more information, please join our gourp, https://discord.gg/spVaAHAtbM
+
+Or scan the QR code to join Wukong CRM’s official WeChat group.
+
 ![img.png](static/img.png)
 
-#### 五、快速开始
+V. Quick Start
+Before running the installation commands, you need to install [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/).
 
-在运行安装命令之前，需要安装[Docker](https://docs.docker.com/get-docker/) 和 [Docker Compose](https://docs.docker.com/compose/install/)
+For macOS/Windows:
+It is recommended to download and install directly from the [Docker official website](https://www.docker.com) .
 
-- mac/windows ，建议在[Docker官网](https://www.docker.com) 直接下载并安装
-- linux下，执行`bash <(curl -sSL https://linuxmirrors.cn/docker.sh)`进行安装
+For Linux:
+Execute the following command to install:`bash <(curl -sSL https://linuxmirrors.cn/docker.sh)`
+
 ```bash
 cd Wukong_AI_CRM_15
 cd docker
 docker compose up -d
 ```
-更详细的安装教程及社区讨论，请参考 https://bbs.72crm.com#/forum/detail/1968891986129776640
+For more detailed installation tutorials and community discussions, please refer to [Wukong Forum](https://bbs.72crm.com#/forum/detail/1996882232061353984)
