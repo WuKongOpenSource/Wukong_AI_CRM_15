@@ -1,37 +1,62 @@
-悟空CRM开源版使用协议
-悟空CRM（CustomerRelationshipManagement）即：悟空客户关系管理软件（以下简称悟空CRM）由郑州卡卡罗特软件科技有限公司（以下简称卡卡罗特）开发。卡卡罗特依法拥有悟空CRM的所有版权和所有权益。本着共享开放的角度，卡卡罗特以开放源代码的形式发布悟空CRM，您可以在遵守该协议的前提下使用悟空CRM。
-自您安装悟空CRM开始，您和卡卡罗特之间的合同关系自动成立，成为卡卡罗特用户（以下简称为用户）。除非您停止使用悟空CRM或与卡卡罗特有签署额外合同，您须认真遵循该用户协议约定的每一项条款。
-官方地址：www.5kcrm.com/www.72crm.com
-官方电话：400-0812-558
-官方邮箱：service@5kcrm.com
+🌍 Please Choose Your Language
 
-一、协议中提到的名词约定
-1.1下述条款中所指悟空CRM的标志包括如下方面：
-悟空CRM源代码及文档中关于悟空CRM的版权提示、文字、图片和链接。
-悟空CRM运行时界面上呈现出来的有关悟空CRM的文字、图片和链接。
-1.2不包括如下方面：
-悟空CRM提供的演示数据中关于悟空CRM的文字、图片和链接。
-二、免责声明
-2.1用户出于自愿而使用本软件，必须了解使用本软件的风险，在尚未购买产品技术服务或商业授权之前，我们不承诺对免费用户提供任何形式的技术支持、使用担保，也不承担任何因使用本软件而产生问题的相关责任。
-2.2电子文本形式的使用协议如同双方书面签署的协议一样，具有完全的和等同的法律效力。您一旦开始确认本协议并安装悟空CRM，即被视为完全理解并接受本协议的各项条款，在享有以下条款授予的权力的同时，受到相关的约束和限制。
-2.3协议许可范围以外的行为，将直接违反本授权协议并构成侵权，我们有权随时终止授权，责令停止损害，并保留追究相关责任的权利。
-2.4 卡卡罗特为本软件提供相关的在线服务，可根据卡卡罗特的判断随时更改或终止。对于因使用或无法使用这些在线服务而导致的任何问题，卡卡罗特不承担任何责任，但将尽力确保服务的可靠性与安全性。
-三、协议许可的权利
-3.1如果您以学习或研究为目的使用悟空CRM，卡卡罗特不对您做任何限制。
-3.2基于上述目的（3.1）您可以在您个人任意数量的电脑上运行悟空CRM，卡卡罗特不对电脑的数量做任何限制。
-3.3您可以对悟空CRM源代码进行修改以适应您个人学习研究的要求，您做的改动无需对外发布。
-3.4本软件包含一些依赖网络连接以增强其功能的特性。为向用户提供这些增强体验和附加服务，软件可能需要访问卡卡罗特应用市场及云平台。这些服务的可用性和内容由卡卡罗特提供并维护。
-3.5卡卡罗特依法拥有悟空CRM的所有版权和软件权益，未经商业授权，您无任何版权及软件相关权益。
-四、协议规定的约束和限制
-4.1当您开始将悟空CRM用于企业内部管理使用，意味着已经商用，需购买相应的商业授权。
-4.2未获得商业授权之前，不得将本软件用于商业用途（包括但不限于企业内部使用、二次开发后进行销售、以营利为目的或实现盈利等形式）。
-4.3未经官方许可，禁止在悟空CRM的整体或任何部分基础上发展任何派生版本、修改版本或第三方版本用于重新分发,包括但不限于基于悟空CRM开发SAAS平台等相关服务。
-4.4如果您未能遵守本协议的条款，您的授权将被终止，所被许可的权利将被收回，并承担相应法律责任。
-4.5您使用悟空CRM时，必须保留悟空CRM的所有标志，不得以任何方式隐藏或遮掩任一标志。
-4.6贡献者提交代码即表示同意将其知识产权转让给项目方，或授予项目方永久使用许可。
-五、未尽事项
-5.1如果上述条款无法满足您使用悟空CRM的要求，可联系卡卡罗特签署额外的合同以获得更灵活的授权许可。
-六、合同约束
-6.1如果您违反了该协议的任一条款，该用户协议将自动终止，您必须停止使用，卡卡罗特保留通过法律手段追究责任的权利。
-6.2如涉及修改协议，卡卡罗特将提前30天进行公告，新版本自公告期满后生效，不溯及既往。关于本协议、修改协议及上述服务的具体解释，以卡卡罗特发布的官方说明为准。
-6.3本协议适用中华人民共和国法律，因本协议引起的争议，双方应通过友好协商解决；协商不成的，提交郑州仲裁委员会仲裁。
+[English](https://github.com/WuKongOpenSource/Wukong_AI_CRM_15/edit/main/LICENSE) | [中文（简体）](https://github.com/WuKongOpenSource/Wukong_AI_CRM_15/edit/main/LICENSE_CN)
+
+Wukong CRM Open Source Version Usage Agreement
+Wukong CRM (Customer Relationship Management), namely Wukong Customer Relationship Management Software (hereinafter referred to as "Wukong CRM"), is developed by Zhengzhou Kakarot Software Technology Co., Ltd of P.R.China. (hereinafter referred to as "Kakarot"). Kakarot legally owns all copyrights and rights to Wukong CRM. In the spirit of sharing and openness, Kakarot releases Wukong CRM in open-source form, and you may use Wukong CRM provided that you comply with this Agreement.
+Upon your installation of Wukong CRM, a contractual relationship between you and Kakarot is automatically established, and you become a Kakarot user (hereinafter referred to as "User"). Unless you cease using Wukong CRM or sign an additional contract with Kakarot, you shall strictly comply with each term of this User Agreement.
+Official Website: www.5kcrm.com / www.72crm.com
+Official Phone: 400-0812-558
+Official Email: service@5kcrm.com
+1. Definition of Terms in the Agreement
+1.1 The "Wukong CRM Marks" referred to in the following clauses include:
+
+Copyright notices, text, images, and links related to Wukong CRM in the source code and documentation of Wukong CRM.
+Text, images, and links related to Wukong CRM displayed on the runtime interface of Wukong CRM.
+
+1.2 The following items are excluded:
+Text, images, and links related to Wukong CRM in the demonstration data provided by Wukong CRM.
+
+2. Disclaimer
+2.1
+You use this software voluntarily and must be aware of the risks associated with its use. Prior to purchasing technical support services or commercial licenses, we do not commit to providing any form of technical support or warranty for free users, nor do we assume any liability for issues arising from the use of this software.
+2.2
+The electronic text form of this usage agreement has full and equivalent legal effect, just like a written agreement signed by both parties. Once you confirm this Agreement and install Wukong CRM, you are deemed to have fully understood and accepted all terms of this Agreement. While enjoying the rights granted by the following clauses, you shall be bound and restricted by the relevant provisions.
+2.3
+Any act beyond the scope permitted by this Agreement will directly violate this license agreement and constitute infringement. We reserve the right to terminate the license at any time, order the cessation of infringement, and pursue relevant legal liability.
+2.4
+Kakarot provides relevant online services for this software, which may be modified or terminated at any time at Kakarot’s discretion. Kakarot shall not be liable for any issues arising from the use or inability to use these online services, but will make reasonable efforts to ensure the reliability and security of the services.
+3. Rights Licensed by the Agreement
+3.1
+If you use Wukong CRM for learning or research purposes, Kakarot imposes no restrictions on you.
+3.2
+For the aforesaid purpose (3.1), you may run Wukong CRM on any number of your personal computers, and Kakarot imposes no restrictions on the number of computers.
+3.3
+You may modify the source code of Wukong CRM to meet your personal learning and research needs, and you are not required to publish such modifications externally.
+3.4
+This software includes features that rely on network connectivity to enhance its functionality. To provide users with these enhanced experiences and additional services, the software may need to access Kakarot’s application market and cloud platform. The availability and content of these services are provided and maintained by Kakarot.
+3.5
+Kakarot legally owns all copyrights and software rights to Wukong CRM. Without a commercial license, you shall have no copyrights or software-related rights.
+4. Restrictions and Limitations of the Agreement
+4.1
+If you use Wukong CRM for internal corporate management, it shall be deemed commercial use, and you shall purchase the corresponding commercial license.
+4.2
+Prior to obtaining a commercial license, you shall not use this software for commercial purposes, including but not limited to internal corporate use, secondary development for sales, profit-making purposes, or any form of profit realization.
+4.3
+Without official permission, you are prohibited from developing any derivative versions, modified versions, or third-party versions based on the entirety or any part of Wukong CRM for redistribution, including but not limited to developing SaaS platforms or related services based on Wukong CRM.
+4.4
+If you fail to comply with the terms of this Agreement, your license will be automatically terminated, the licensed rights will be revoked, and you shall bear corresponding legal liability.
+4.5
+When using Wukong CRM, you must retain all marks of Wukong CRM and shall not hide or obscure any mark in any manner.
+4.6
+By submitting code, contributors agree to transfer their intellectual property rights to the project owner or grant the project owner a permanent license for use.
+5. Miscellaneous Provisions
+5.1
+If the above clauses cannot meet your requirements for using Wukong CRM, you may contact Kakarot to sign additional contracts to obtain more flexible license permissions.
+6. Contractual Binding
+6.1
+If you violate any clause of this Agreement, this User Agreement will automatically terminate, and you must cease using Wukong CRM. Kakarot reserves the right to pursue legal liability through legal means.
+6.2
+In case of any modification to this Agreement, Kakarot will announce it 30 days in advance. The new version shall take effect after the expiration of the announcement period and shall not be retroactive. The specific interpretation of this Agreement, modified agreements, and the aforesaid services shall be subject to the official explanations published by Kakarot.
+6.3
+This Agreement shall be governed by the laws of the People's Republic of China. Any dispute arising from this Agreement shall be resolved through friendly negotiation between the parties; if negotiation fails, the dispute shall be submitted to the Zhengzhou Arbitration Commission for arbitration.
